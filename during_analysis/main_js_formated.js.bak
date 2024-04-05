@@ -1,0 +1,624 @@
+"var UpPath = "http://210.51.2.101/uploadgbk/";
+
+var liveSwitching = true;
+ 
+function $(){
+var Var1=new Array();
+for(var i=0;i<arguments.length;i++){
+var Var2=arguments[i];
+if(typeof Var2=="string"){
+Var2=document.getElementById(Var2);
+}
+if(arguments.length==1){
+return Var2;
+}
+Var1.push(Var2);
+}
+return Var1;
+}
+
+
+var WinLoad={loadfuncs:new Array(),addFunc:function(ref){
+ 
+}
+
+};
+
+
+function switchSearch(smode) {
+    if (!liveSwitching) {
+        return true;
+        }
+    else {
+        $("smode").value = smode;
+        var stabs = $("taglist").getElementsByTagName("li");
+        for (var i=0; i < stabs.length; i++) stabs[i].className = "";
+        $("sm_"+smode).className = "selected";
+        $("sb").focus();
+        return false;
+    } 
+}
+
+
+
+//Media Link
+function playmedia(playIcon, strID,strURL,intWidth,intHeight) {
+
+\tplayIcon.replace(" ","%20");
+\tstrID.replace(" ","%20");
+\t
+\tvar objDiv=document.getElementById(strID);
+\tdocument.getElementById(playIcon).style.display='none';
+\t
+\tif (!objDiv) return false;
+\tif (objDiv.style.display!='none') {
+\t\tobjDiv.innerHTML='';
+\t\tobjDiv.style.display='none';
+\t} else {
+\t\tobjDiv.innerHTML=makemedia(strURL,intWidth,intHeight);
+\t\tobjDiv.style.display='block';
+\t}
+}
+
+//Media Build
+function makemedia (strURL,intWidth,intHeight) {
+\tvar strHtml;
+\t
+\tstrHtml ="<object id='MediaPlayer1' width='"+ intWidth +"' height='"+ intHeight +"' classid='CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95' codebase='http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715' align='baseline' border='0' standby='Loading Microsoft Windows Media Player components...' type='application/x-oleobject'>";
+\tstrHtml+="<param name='invokeURLs' value='0'>";
+    \tstrHtml+="<param name='FileName' value=\\""+ strURL +"\\">";
+    \tstrHtml+="<param name='ShowControls' value='1'>";
+    \tstrHtml+="<param name='ShowPositionControls' value='0'>";
+    \tstrHtml+="<param name='ShowAudioControls' value='1'>";
+    \tstrHtml+="<param name='ShowTracker' value='1'>";
+    \tstrHtml+="<param name='ShowDisplay' value='0'>";
+    \tstrHtml+="<param name='ShowStatusBar' value='1'>";
+    \tstrHtml+="<param name='AutoSize' value='0'>";
+    \tstrHtml+="<param name='ShowGotoBar' value='0'>";
+    \tstrHtml+="<param name='ShowCaptioning' value='0'>";
+    \tstrHtml+="<param name='AutoStart' value='1'>";
+    \tstrHtml+="<param name='PlayCount' value='0'>";
+    \tstrHtml+="<param name='AnimationAtStart' value='0'>";
+    \tstrHtml+="<param name='TransparentAtStart' value='0'>";
+    \tstrHtml+="<param name='AllowScan' value='0'>";
+    \tstrHtml+="<param name='EnableContextMenu' value='1'>";
+    \tstrHtml+="<param name='ClickToPlay' value='0'>";
+    \tstrHtml+="<param name='DefaultFrame' value='datawindow'>";
+\t
+\t
+\tstrHtml+="<embed src=\\""+ strURL +"\\" align='baseline' border='0' width='"+ intWidth +"' height='"+ intHeight +"' type='application/x-mplayer2'";
+        strHtml+=" pluginspage='http://www.microsoft.com/isapi/redir.dll?prd=windows&amp;sbp=mediaplayer&amp;ar=media&amp;sba=plugin&amp;'";
+        strHtml+="name='MediaPlayer' showcontrols='1' showpositioncontrols='0' showaudiocontrols='1' showtracker='1' showdisplay='0' showstatusbar='1' autosize='0' showgotobar='0' showcaptioning='0' autostart='1' autorewind='0'";
+        strHtml+="animationatstart='0' transparentatstart='0' allowscan='1' enablecontextmenu='1' clicktoplay='0' defaultframe='datawindow' invokeurls='0'> </embed></object>";
+        
+     
+\treturn strHtml;
+}
+
+
+
+
+//?????д???
+
+function GetSongType(md5code)
+{
+\tswitch(md5code)
+\t{
+\t\tcase "7d99bb4c7bd4602c342e2bb826ee8777":
+\t\t\treturn ".wma";
+\t\t\tbreak;
+\t\tcase "25e4f07f5123910814d9b8f3958385ba":
+\t\t\treturn ".Wma";
+\t\t\tbreak;
+\t\tcase "51bbd020689d1ce1c845a484995c0cce":
+\t\t\treturn ".WMA";
+\t\t\tbreak;
+\t\tcase "b3a7a4e64bcd8aabe4cabe0e55b57af5":
+\t\t\treturn ".mp3";
+\t\t\tbreak;
+\t\tcase "d82029f73bcaf052be8930f6f4247184":
+\t\t\treturn ".MP3";
+\t\t\tbreak;
+\t\tcase "5fd91d90d9618feca4740ac1f2e7948f":
+\t\t\treturn ".Mp3";
+\t\t\tbreak;
+\t}\t
+}
+
+//Media Link
+function playmedia1(playIcon, strID,strURL,intWidth,intHeight,type, Head,st_songid,t) {
+ 
+\tplayIcon.replace(" ","%20");
+\tstrID.replace(" ","%20");
+\t
+\tvar objDiv=document.getElementById(strID);
+\tdocument.getElementById(playIcon).style.display='none';
+\t
+\tif (!objDiv) return false;
+\tif (objDiv.style.display!='none') {
+\t\tobjDiv.innerHTML='';
+\t\tobjDiv.style.display='none';
+\t} else {
+\t\tif(strURL.indexOf('rayfile')>0) {
+\t\t\tvar SongUrl = Head + strURL + GetSongType(type);
+\t\t\tobjDiv.innerHTML=makemedia_html(SongUrl,intWidth,intHeight);
+\t\t\tobjDiv.style.display='block';
+\t\t} else {
+\t\t\t$.ajax({
+\t\t\t\ttype:'POST',
+\t\t\t\turl:'/time.php',
+\t\t\t\tcache:false,
+\t\t\t\tdata:'str='+strURL+'&sid='+st_songid+'&t='+t,
+\t\t\t\tdataType:'html',
+\t\t\t\tsuccess:function(data){
+\t\t\t\t\t//alert(data);
+\t\t\t\t\tif(data){
+\t\t\t\t\t\tobjDiv.innerHTML=makemedia_html(data,intWidth,intHeight);
+\t\t\t\t\t\tobjDiv.style.display='block';
+\t\t\t\t\t\tif(data.indexOf('duomi.com') > 0){
+\t\t\t\t\t\t\t$("#show_logo").show();\t
+\t\t\t\t\t\t}
+\t\t\t\t\t}
+\t\t\t\t},
+\t\t\t\terror:function(data){
+\t\t\t\t\t//alert('error');
+\t\t\t\t}
+\t\t\t\t});
+\t\t}
+\t\t
+\t}
+}
+
+//Media Build
+function makemedia_html (SongUrl,intWidth,intHeight) {
+\tvar strHtml ="<object id='MediaPlayer1' width='"+ intWidth +"' height='"+ intHeight +"' classid='CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95' codebase='http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715' align='baseline' border='0' standby='Loading Microsoft Windows Media Player components...' type='application/x-oleobject'>";
+\tstrHtml+="<param name='invokeURLs' value='0'>";
+\t\tstrHtml+="<param name='AutoRewind' value='1'>";
+    \tstrHtml+="<param name='FileName' value=\\""+ SongUrl +"\\">";
+    \tstrHtml+="<param name='ShowControls' value='1'>";
+    \tstrHtml+="<param name='ShowPositionControls' value='0'>";
+    \tstrHtml+="<param name='ShowAudioControls' value='1'>";
+    \tstrHtml+="<param name='ShowTracker' value='1'>";
+    \tstrHtml+="<param name='ShowDisplay' value='0'>";
+    \tstrHtml+="<param name='ShowStatusBar' value='1'>";
+    \tstrHtml+="<param name='AutoSize' value='0'>";
+    \tstrHtml+="<param name='ShowGotoBar' value='0'>";
+    \tstrHtml+="<param name='ShowCaptioning' value='0'>";
+    \tstrHtml+="<param name='AutoStart' value='1'>";
+    \tstrHtml+="<param name='PlayCount' value='100'>";
+    \tstrHtml+="<param name='AnimationAtStart' value='0'>";
+    \tstrHtml+="<param name='TransparentAtStart' value='0'>";
+    \tstrHtml+="<param name='AllowScan' value='0'>";
+    \tstrHtml+="<param name='EnableContextMenu' value='1'>";
+    \tstrHtml+="<param name='ClickToPlay' value='0'>";
+    \tstrHtml+="<param name='DefaultFrame' value='datawindow'>";
+\t
+\t
+\tstrHtml+="<embed src=\\""+ SongUrl +"\\" align='baseline' border='0' width='"+ intWidth +"' height='"+ intHeight +"' type='application/x-mplayer2'";
+        strHtml+=" pluginspage='http://www.microsoft.com/isapi/redir.dll?prd=windows&amp;sbp=mediaplayer&amp;ar=media&amp;sba=plugin&amp;'";
+        strHtml+="name='MediaPlayer' showcontrols='1' showpositioncontrols='0' showaudiocontrols='1' showtracker='1' showdisplay='0' showstatusbar='1' autosize='0' showgotobar='0' showcaptioning='0' autostart='1' autorewind='1'";
+        strHtml+="animationatstart='0' transparentatstart='0' allowscan='1' enablecontextmenu='1' clicktoplay='0' defaultframe='datawindow' invokeurls='0' playcount='100'> </embed></object>";
+        
+     
+\treturn strHtml;
+\t
+}
+
+function wrtSongLink(strURL,intWidth,intHeight,type, Head)
+{
+\t
+\tSongUrl = Head + strURL + GetSongType(type);
+\tif(SongUrl.length > 35)
+\t\tSongUrl1 = SongUrl.slice(0,24)+"......"+SongUrl.slice(-10)
+\telse
+\t\tSongUrl1 = SongUrl
+\t\t
+\tdocument.write("?????? <a href='"+SongUrl +"'>"+SongUrl1+"</a>")\t
+\t//document.write("<a href=\\"#\\" onclick=\\"window.open('"+Head + strURL + GetSongType(type) +"','','width=0,height=0,top=0,left=0');\\">???????</a>")
+}
+//?????д????
+
+
+
+var chkArray=document.getElementsByName("chkSongID");
+
+//?????,s 1??,s 0???
+function selAll(s){
+\tif(chkArray.length){
+\t\tvar sel=true;
+\t\tswitch(s){
+\t\t\tcase 1:
+\t\t\t\tfor(i=0;i<chkArray.length;i++){
+\t\t\t\t\tif(!chkArray[i].checked){
+\t\t\t\t\t\tsel=false;
+\t\t\t\t\t\tbreak;
+\t\t\t\t\t}
+\t\t\t\t}
+\t\t\t\tfor(i=0;i<chkArray.length;i++){
+\t\t\t\t   chkArray[i].checked=sel?false:true; 
+\t\t\t\t}
+\t\t\t\tbreak;
+\t\t\tcase 0:
+\t\t\t\tfor(i=0;i<chkArray.length;i++){
+\t\t\t\t   chkArray[i].checked=chkArray[i].checked?false:true; 
+\t\t\t\t}
+\t\t\t\tbreak;\t
+\t\t}
+\t}
+
+}
+
+//?ж?????м???????
+function sel(){
+\tvar sel=false;
+\tif(chkArray.length){
+\t\tfor(i=0;i<chkArray.length;i++){
+\t\t\tif(chkArray[i].checked){
+\t\t\t\tsel=true;
+\t\t\t\tbreak;
+\t\t\t}
+\t\t}
+\t}
+\treturn sel;
+}
+
+
+function doMusicList(){
+\tif(sel())
+\t{
+\t\tvar id="";
+\t\tfor(i=0;i<chkArray.length;i++)
+\t\t{
+\t\t\tif(chkArray[i].checked)
+\t\t\t{
+\t\t\t\tid+=chkArray[i].value+",";
+        \t\t}
+\t\t}
+\t\tid=id.substring(0,id.length-1);
+\t
+\t\twindow.open("/playmusic.php?song_id="+id+"","songtaste","menubar=no,location=no,resizable=no,scrollbars=no,status=no,width=50,height=50");
+\t}
+\telse
+\t{
+\t\talert("????????");
+\t}
+}
+
+//??????????????
+function delSongBat(pageref){\t\t
+\tif(sel())
+\t{
+\t\tvar id="";
+\t\tfor(i=0;i<chkArray.length;i++)
+\t\t{
+\t\t\tif(chkArray[i].checked)
+\t\t\t{
+\t\t\t\tid+=chkArray[i].value+",";
+        \t\t}
+\t\t}
+\t\tid=id.substring(0,id.length-1);
+\t
+\t\tif(confirm("??????????б??????????????"))
+\t\t{
+\t\t\twindow.location="info_oper.php?tag=delsong_bat&songid="+id+"&pageref="+pageref;
+\t\t}
+\t\t
+\t}
+\telse
+\t{
+\t\talert("????????");
+\t}
+}
+
+
+function addBoxList(){
+\tif(sel())
+\t{
+\t\tvar id="";
+\t\tfor(i=0;i<chkArray.length;i++)
+\t\t{
+\t\t\tif(chkArray[i].checked)
+\t\t\t{
+\t\t\t\tid+=chkArray[i].value+",";
+        \t\t}
+\t\t}
+\t\tid=id.substring(0,id.length-1);
+\t
+\t\twindow.open("/info_oper.php?tag=addboxlist&song_id="+id+"","songtaste","menubar=no,location=no,resizable=no,scrollbars=no,status=no,width=280,height=150,top=200,left=210");
+\t}
+\telse
+\t{
+\t\talert("????????");
+\t}
+}
+
+
+
+
+
+function checkall(formname, selnum)   //??л????????????????
+{
+\tif ( document.all("selall").checked ==1  )
+\t{
+\t    for ( var i = 0; i < selnum; i++ )
+\t    \tformname.sel[i].checked = 1;
+\t}
+\tif ( document.all("selall").checked ==0  )
+\t{
+\t    for ( var i = 0; i < selnum; i++ )
+\t    \tformname.sel[i].checked = 0;
+\t}
+}
+
+
+
+
+
+var liveSwitching = true;
+ 
+function $(){
+var Var1=new Array();
+for(var i=0;i<arguments.length;i++){
+var Var2=arguments[i];
+if(typeof Var2=="string"){
+Var2=document.getElementById(Var2);
+}
+if(arguments.length==1){
+return Var2;
+}
+Var1.push(Var2);
+}
+return Var1;
+}
+
+
+var WinLoad={loadfuncs:new Array(),addFunc:function(ref){
+ 
+}
+
+};
+
+
+function switchSearch(smode) {
+    if (!liveSwitching) {
+        return true;
+        }
+    else {
+        $("smode").value = smode;
+        var stabs = $("taglist").getElementsByTagName("li");
+        for (var i=0; i < stabs.length; i++) stabs[i].className = "";
+        $("sm_"+smode).className = "selected";
+        $("sb").focus();
+        return false;
+    } 
+}
+
+
+
+
+
+
+function delsong(songid, pageref)
+{
+\tif(confirm("??????????б??????????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delsong&songid="+songid+"&pageref="+escape(pageref);
+\t}
+}
+
+
+
+function delfavsong(songid, pageref)
+{
+\tif(confirm("??????????б??????????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delfavsong&songid="+songid+"&pageref="+escape(pageref);
+\t}
+}
+
+
+function delfavalbum(aid, pageref)
+{
+\tif(confirm("??????????б??????????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delfavalbum&aid="+aid+"&pageref="+escape(pageref);
+\t}
+}
+
+
+function delgrpfav(favid, grpid)
+{
+\tif(confirm("??????С??????б??????????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=grp_delfav&favid="+favid+"&grpid="+grpid;
+\t}
+}
+
+
+function delfrd(frdid)
+{
+\tif(confirm("??????????б?????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delfrd&frdid="+frdid;
+\t}
+}
+
+function delfavuser(favid)
+{
+\tif(confirm("??????????б?????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delfavuser&favid="+favid;
+\t}
+}
+
+function delbad(frdid)
+{
+\tif(confirm("??????????б?????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delbad&frdid="+frdid;
+\t}
+}
+
+function deltag(tagid)
+{
+\tif(confirm("??????????????"))
+\t{
+\t\twindow.location="/info_oper.php?tag=deltag&tagid="+tagid;
+\t}
+}
+
+function delupfile(fileid, pageref)
+{
+\tif(confirm("????????????????ò?????????!"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delupfile&fileid="+fileid+"&pageref="+escape(pageref);
+\t}
+}
+
+
+function delsonggrade(gradeid)
+{
+\tif(confirm("?????????????????????ò?????????!"))
+\t{
+\t\twindow.location="/info_oper.php?tag=delsonggrade&gradeid="+gradeid;
+\t}
+}
+
+function delalbumcmt(cmtid)
+{
+\tif(confirm("???????????????????ò?????????!"))
+\t{
+\t\twindow.location="/info_oper.php?tag=del_albumcmt&cmtid="+cmtid;
+\t}
+}
+
+
+function getCookieVal(offset) { 
+  var endstr = document.cookie.indexOf (";", offset); 
+  if (endstr == -1) { 
+    endstr = document.cookie.length; 
+  } 
+  return unescape(document.cookie.substring(offset, endstr)); 
+} 
+
+
+
+
+function getCookie(name) { 
+  var arg = name + "="; 
+  var alen = arg.length; 
+  var clen = document.cookie.length; 
+  var i = 0; 
+  while (i < clen) { 
+    var j = i + alen; 
+    if (document.cookie.substring(i, j) == arg) { 
+      return getCookieVal(j); 
+    } 
+    i = document.cookie.indexOf(" ", i) + 1; 
+    if (i == 0) break; 
+  } 
+  return null; 
+} 
+
+
+function GetUInfoBlk()
+{
+\tvar icon = getCookie("CookIcon");
+\tvar uid = getCookie("CookID");
+\t 
+
+\tif( uid == null || uid == "" || uid==0)
+\t{
+\t\tdocument.write("<div id='sign'>");
+\t\tdocument.write("???????????<a href='/signin.php' class='underline white'>???</a><br />");
+\t\tdocument.write("Or ??? <a href='/signup.php' class='underline white'>???</a>");
+\t\tdocument.write("</div>");\t\t
+\t}
+\telse
+\t{
+\t\tif( icon == null || icon == "" )
+\t\t{
+\t\t\ticon = "default.gif";
+\t\t}
+\t\telse
+\t\t\ticon = uid.substring(uid.length-2)+"/"+icon;
+\t\t
+\t\t
+\t\tdocument.write("<div id='user_blk'><ul>");
+\t\tdocument.write("<li class='hb1'><a href='/user/"+uid+"/'>??????????????</a></li>");
+\t\tdocument.write("<li class='hb2'><a href='/home.php'>???????</a>  <a href='/home.php?tag=feed'>???</a></li>");
+\t\tdocument.write("<li class='hb3'><a href='#' onClick=window.open('/play.php?tag=box','popwin_kt','menubar=no,location=no,resizable=no,scrollbars=no,status=no,width=50,height=50'); >?????</a>??<a href='/home.php?tag=fav'>????</a></li>");
+\t\t
+\t\t
+\t\tdocument.write("<li><img src='http://image.songtaste.com/images/mail.gif'> <a href='/msg.php' id='msgnum'> 0 ??δ??</a> | <a href='/info_oper.php?tag=signout'>???</a></li></ul>");
+\t\tdocument.write("<img src='/images/usericon/s/"+icon+"' style='margin:0;margin-right:2px;margin-bottom:-3px;'>");
+\t\tdocument.write("</div>");
+\t\t
+\t\tpath = document.location.pathname;
+\t\tif( path.substring(1,6) == "music")
+\t\t\tGetMsgNum();
+\t}
+}
+
+
+function GetUInfoLeft()
+{
+\tvar uid = getCookie("CookID");
+\tvar name = getCookie("CookName");
+\tvar icon = getCookie("CookIcon");
+\t
+\tif( uid != null && uid != "" && uid != 0 && name != null && name != "")
+\t{
+\t\tif( icon == null || icon == "" )
+\t\t{
+\t\t\ticon = "default.gif";
+\t\t}
+\t\telse
+\t\t\ticon = uid.substring(uid.length-2)+"/"+icon;
+\t\t\t
+\t\tdocument.write("<h1 class='h1user'>"+decodeURI(escape(name))+"</h1>");
+\t\tdocument.write("<div class='icon_div'><a href='/home.php'><img src='/images/usericon/l/"+icon+"' border=0 class='icon'></a></div>");
+\t\tdocument.write("<div class='usr_fun'>");
+\t\tdocument.write("<a class='add underline' href='/home.php?tag=add_song'>???????</a> <br />  ");   \t\t
+\t\tdocument.write("<a class='msg underline' href='/umodi.php'>????????</a>");
+\t\tdocument.write("</div>");\t
+\t}
+}
+
+
+
+function imgcheck()
+{
+\tvar imgNum = document.images.length;
+\t
+\tfor(i=0;i<imgNum;i++)
+\t{
+\t\tif(window.document.images[i].width > 670)
+\t\t\twindow.document.images[i].width = 670;
+\t}
+}
+
+
+function WrtFoot()
+{
+\t//document.write("<div id='footer'><div id='foot_right'><div style='float:right;margin:0 30px 0 0;display:inline'><a href='http://www.miibeian.gov.cn' target=_blank><font color='#ffffff'>??ICP??07025509??</font></a> <font color='#ffffff'> ??????[2011]0173-066??</font> </div>                <ul class='foot_fun'><li><a href='/aboutus.php'>????????</a></li> <li><a href='/copyright.php'>???????</a></li>  <li><a href='/bbs.php?tag=board&bid=09'>??????</a></li><li><a href='/help.php'>SongTaste????</a></li> <li><a href='/sitemap.html'>?????</a></li> <li><a href='/link.php'>????????</a></li> <li><a href='/hotmusic.php'>???????</a></li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; 2006 - 2011   SongTaste.com  &nbsp; Ver 1.0  &nbsp; LastUpdate: 2011.04.01</p></div></div>");
+\tdocument.write("<div id='footer'><ul class='foot_fun'><li><a href='/aboutus.php'>????????</a></li> <li><a href='/copyright.php'>???????</a></li>  <li><a href='/bbs.php?tag=board&bid=09'>??????</a></li><li><a href='/help.php'>SongTaste????</a></li> <li><a href='/sitemap.html'>?????</a></li> <li><a href='/link.php'>????????</a></li> <li><a href='/hotmusic.php'>???????</a></li> <li><a href='/musicians_coop.php'>?????????????</a></li></ul><p></p> <div style='margin:0 20px 0 0;display:inline'><a href='http://www.miibeian.gov.cn' target=_blank><font color='#CCCCCC'>??ICP??11022597??</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='#CCCCCC'>??ICP?110908??</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='#CCCCCC'> ????????[2011]0173-066??</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='#CCCCCC'> ?????????? 110105005732</font> </div>&copy; 2006 - 2011   SongTaste.com  &nbsp;</div>");
+\t
+}
+
+
+
+function imgcheckquote(obj)
+{
+\tif(obj.width > 600)
+\t\tobj.width = 600;
+}
+
+function codehash(n)
+{
+\tvar rnd="";
+\tfor(var i=0;i<n;i++)
+\trnd+=Math.floor(Math.random()*10);
+\treturn rnd;
+}
+"

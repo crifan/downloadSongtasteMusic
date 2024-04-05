@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<title> songtaste——播放器 </title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<link rel="stylesheet" type="text/css" media="screen" href="http://image.songtaste.com/inc/style.css" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" media="screen" href="http://image.songtaste.com/inc/IE6.css" />
+<![endif]-->
+
+<script type="text/javascript" src="http://image.songtaste.com/unit/ajax.js"></script>
+<script type="text/javascript" src="http://image.songtaste.com/inc/jquery.js"></script>
+<SCRIPT type="text/javascript" src="http://image.songtaste.com/js/players_oo.js"></SCRIPT>
+
+
+<script>
+function WrtSongLine(SongID, SongName, Singer, IsBox, Idx, SongUrl, MidUrl){
+ImgRoot = "http://image.songtaste.com";
+Idx1 = parseInt(Idx)+1;
+strLine="<LI id="+SongID+" onmouseover=\"javascript:pu.changeBg('"+SongID+"','over')\" onmouseout=\"javascript:pu.changeBg('"+SongID+"','out')\"><DIV class=p_a><a href='#' onclick=\"delSongDiv('"+SongID+"', '"+IsBox+"')\"><img src='"+ImgRoot+"/images/del.gif' border=0 class='p_del' alt='删除'> </a><a  onclick=\"pu.utils("+Idx+");cur_sid=arr_ids["+Idx+"];playSongRight()\" targer='_self'>"+Idx1+" "+SongName+ " " +Singer+"</a></DIV><DIV class=hd id=song_"+SongID+"><INPUT id=url_"+SongID+" type=hidden value='"+SongUrl+"' name='+SongName+'><INPUT id=midurl_"+SongID+" type=hidden value='"+MidUrl+"'><a href='/song/"+SongID+"/' target=_blank class='underline'>"+SongName+"  "+Singer+"</A></DIV></LI>";
+document.write(strLine);
+}
+
+function downSong()
+{
+	window.open("http://huodong.duomi.com/songtaste/?songid="+cur_sid);
+	//window.location.href="http://huodong.duomi.com/songtaste/?songid="+cur_sid;
+}
+
+</script>
+<style type="text/css">
+	.p_lyric_tit{ margin:0px; }
+	.p_fun{ border-bottom:none; _padding-bottom:2px; _margin-top:-5px }
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	var playcode = {"3036657":"","3036656":"","3036655":"","3036651":"","3036650":"","3036638":"","3036615":"","3036593":"","3035869":"","3023250":"","3017255":"","2980496":"","2965876":"","2935406":"","2932425":"","2841934":"","2809092":"","2505349":"","2496498":"","2458826":"","2367534":"","1935262":"","1478431":"","1361376":"","743379":"","733069":"","408641":"","132166":""};
+//-->
+</SCRIPT>
+
+</head>
+<BODY style="text-align:left;padding:0 5px 5px 5px;background:#BEBFC1;">
+<div>
+
+<div class="p_song_div ">
+<SCRIPT type=text/javascript>
+window.resizeTo(730,660);
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+var total=28;
+var arr_ids = new Array(3036650,3017255,2458826,1478431,2505349,2496498,2367534,3036651,3036657,2809092,1935262,1361376,2935406,2841934,3036656,733069,3036615,3036655,132166,3036593,3036638,743379,3023250,408641,2932425,3035869,2965876,2980496,0);
+var cur_sid = arr_ids[0];
+
+$().ready(function(){
+	playSongRight();
+})
+
+function playSongRight(){
+	var left_height = $("#left_music_div").height(); 
+	$(".p_song_div").height(left_height-3);
+	$("#songlist").height((left_height-26));
+	//$("#playListImg").css("top",left_height);
+}
+</SCRIPT>
+
+</SCRIPT>
+<p class="p_list_txt">　NO　歌曲列表　　　　　　　　　　　 </p>
+<div class="p_songlist" id="songlist">
+	<UL id=songs>
+<script>
+WrtSongLine("3036650", "雨后天台 ", "纯音乐 ", "0", "0", "http://m3.songtaste.com/201204222219/a5527c1c1f3465c930a7173db31d881c/3/3e/3e0d12644a39ea43452e2b810de59af0.mp3", "ac3dd8db6f5f2b0316ee042fe6acc96f75a7e5249be159e0a9cde5e8fab3b8331802231c0db1b2622f1ced3fe51ffc51");
+WrtSongLine("3017255", "▌▌゛ 黑白键 ゛ ＜ 美妙节拍｜单曲循环再循环 ＞:祭夜醉美推荐 ", "祭夜醉美 ", "0", "1", "http://m6.songtaste.com/201204222219/c01c4417e63e4db64e3b1a1384ef3198/6/64/64c8bbb876a68f629147a3029b67d506.mp3", "5b32368e1b9fd42a7f5e36822699bac92dc774e6fe322137a0bf2c0f87918b5bb19c38ddb1c11a1a2f1ced3fe51ffc51");
+WrtSongLine("2458826", "Tonight ", "The Netw0rk ", "0", "2", "http://me.songtaste.com/201204222219/98ea188f8eecd7702e98353004301f42/e/ed/ed6a47ac95e071426b8877f0e00d8ca9.mp3", "08b0df38269c1431bcd02346db39ae4ff20d44f0dd5728f228d8a54f0120569741282a5d721d3c3d2f1ced3fe51ffc51");
+WrtSongLine("1478431", "Lentamente cae ", "David Cavazos ", "0", "3", "http://mb.songtaste.com/201204222219/b4184901bcd1d19c723d976c6247f3ae/b/b5/b52ad4e3b7ca3b07e1ee4c1968f070f8.mp3", "e9b0c4fe4faec26f65cf62ae845caea4067183d738bf60ff1072d3fb02e15dffa0b60c3b33afdaae2f1ced3fe51ffc51");
+WrtSongLine("2505349", "simple gifts 简单的礼物 ", "jewel ", "0", "4", "http://m9.songtaste.com/201204222219/3cee945b6f2b12939d5d2e9903a06a67/9/9c/9ced3018f95ec7538ec200fe43e678c9.mp3", "c37cda2407f02b9d705e2dc535d8a6c373f9f4a76c37c7b3876c6cefe72dcc23cde0ee6f2f1b88592f1ced3fe51ffc51");
+WrtSongLine("2496498", "　|▌|▌〃 ＳＴ首发 外面的世界 很有味道的翻唱 王伟美&amp;超人特攻队 ", "　转眼即逝〃 ", "0", "5", "http://m4.songtaste.com/201204222219/aa0ea269aff8ead3e8d943f4831ac2f5/4/48/48b611bb23cbd0d4b2b4438bac2a9c32.mp3", "15227340a45c5316e192e5ca5e9f592291db57a210e718c1b5389f73c1a305545d1d6c6baa181d762f1ced3fe51ffc51");
+WrtSongLine("2367534", "Joey推荐 ˉ Set The Fire To Rain ━ Adele( 力 量 女 聲 ) ", "ＤＴ Ω Joey ", "0", "6", "http://m9.songtaste.com/201204222219/24e997ad15b4de49f1946e16aa944663/9/9c/9ca2e103d78f18a60b0de29930334351.mp3", "28ad07bc2e40e1161614f4c9823a44f64eea3ffad633510bc30f130d86d7097855c960d1e07127242f1ced3fe51ffc51");
+WrtSongLine("3036651", "Leaving Without Goodbye ", "纯音乐 ", "0", "7", "http://md.songtaste.com/201204222219/ac3d6cda391c0f6b92bde9c2db9ca205/d/d6/d6b3f3cc1a70fec5186fa7e206369563.mp3", "d69c8ab52fd2476d13925cd909fba90071dab0a326ba97d104c4fab8d7983f12840c1a880ed808a32f1ced3fe51ffc51");
+WrtSongLine("3036657", "happy feet （QAF） ", "High Heels Mix ", "0", "8", "http://mb.songtaste.com/201204222219/4abd7f9eafc914123cfbb655d6e9fba6/b/b6/b6ab79bcf6e14a2b6ce7173d1f039399.mp3", "b9db79fc6fdb42892097d44f9cc2b4eb3ce5295ed591c6f73f3453f503e0cb6c81376f4a3728266d2f1ced3fe51ffc51");
+WrtSongLine("2809092", "吸血鬼日记第三季第一集A Drop In the Ocean ", "Ron Pope ", "0", "9", "http://m7.songtaste.com/201204222219/cd2038d0bef8e0c1c2345b247035b899/7/77/77a14e59cd6d2ac6a52a918133beaf9f.mp3", "c6fc370f15ad2bd0c1398ce5a8032bb38e7774fb3e3b824e5d94bb0cc90b06a690ec7b9937a04cca2f1ced3fe51ffc51");
+WrtSongLine("1935262", "╰.烟蒂强推激情女声丶请携带低音炮入内﹀这是悍曲.不悍姐不推.丶 ", "1956.烟蒂 ", "0", "10", "http://m3.songtaste.com/201204222219/c65f9b10f44bfde24521c3dd95f3b881/3/36/366a72c367011d49d22cde42aea11e54.mp3", "2dc499239743dd33e71843c5ac1fe539432f8fedca9e65dbdef3acbf93f59acd9d2d0f8959f3e37a2f1ced3fe51ffc51");
+WrtSongLine("1361376", "巫女 仙女 ", "David Cavazos ", "0", "11", "http://m3.songtaste.com/201204222219/56d6b84a6bff697d656a3e45c842e5ad/3/3d/3ded1a6b6200198ce502ad2e0ef362ce.mp3", "dff4bfe1e3e9c6eff5b008c81bb97aacacc26c6536bae15ebf411c4e07d93ab9def26ecaaf90729a2f1ced3fe51ffc51");
+WrtSongLine("2935406", "准备用这歌做铃声^做铃声^哈哈哈^祭夜醉美推荐 ", "祭夜醉美 ", "0", "12", "http://m5.songtaste.com/201204222219/165c63e0bab9d17989f103994215b63c/5/53/53d1bec93f06a5b6df572627454923a7.mp3", "03513031b0c55b0d9afd6d044dcfcb22d1c0801fddbea0b0fac2a8af690efd1dbfaccb168747497c2f1ced3fe51ffc51");
+WrtSongLine("2841934", "Need You Now Adele ", "Adele ", "0", "13", "http://m5.songtaste.com/201204222219/9667cef417318e25a00dc51c0ca30386/5/5e/5e9ac7e91a0c25032c8520b3691a7996.mp3", "b8a9308c66437e23113605e6bb410ffaf15555d812515e7b694e85b3113041ab10ba147b49cf2bf72f1ced3fe51ffc51");
+WrtSongLine("3036656", "雨中哭泣 ", "纯音乐 ", "0", "14", "http://m1.songtaste.com/201204222219/3b326dc28a2cf0ce5cd7556c1194cdb0/1/1f/1f3abb6ce028bb5b9d4eb00ff4e3ae9c.mp3", "f866e5ae566e272a3810d21791ae3e6657597846f26eab04c9f6245c3fd928f2cf86d0bdf30ec0f32f1ced3fe51ffc51");
+WrtSongLine("733069", "You gotta be ", "Michi ", "0", "15", "http://m9.songtaste.com/201204222219/17ae9f3401018cbe8307ba679cc5678e/9/94/9416ae153d7936d7ef3d4bd24eda1b4f.mp3", "38409edaa90093a67b4d11530f7d48f231bcea3f6a93dc86f076288abdffdc8bdecc0bf122ade4de2f1ced3fe51ffc51");
+WrtSongLine("3036615", "Come Aróund ", "M.I.A. ", "0", "16", "http://m7.songtaste.com/201204222219/8e5e7fbd0ef2b8e4483b30ededbeebc6/7/77/77170af0bf885128a0bb5d265f7f006b.mp3", "eccc1915d9feb0d1ad7fca96c82b3c56c8f0ed52e547a8c2eb0e9bff0ff3a42135b54e8deea7ca582f1ced3fe51ffc51");
+WrtSongLine("3036655", "Unchained Melody  Righteous Brothers ", "Righteous Brothers ", "0", "17", "http://m4.songtaste.com/201204222219/36159617394d015816081d409322133d/4/4b/4bfbed5c2006c98a4466a5217d8981d5.wma", "101602887538948aa2353463bdee7cdbae02a66b1168357c98efcd8214cd430bb3830768fdfefdb68b71ad302f3c3a9b");
+WrtSongLine("132166", "Sabra Girl ", "Nickel Creek ", "0", "18", "http://mc.songtaste.com/201204222219/5ab8c4c7c0dfdc72cddaf88247d22f52/c/cf/cfe04a56a4d5af09fa81bd2f1ae11ea9.mp3", "09f19b5fce35cd9ebd666e7502e2aad6812f9e596d3384dddf19e7b9dabbd0cd84bb0d6829d8a50b2f1ced3fe51ffc51");
+WrtSongLine("3036593", "▲hiphop▼新版 档次女唱London Bridge ", "This is the rhythm ", "0", "19", "http://mf.songtaste.com/201204222219/6db7575d45687a0443b36d4c34b3360e/f/f0/f02aa2f431df901194f290311250c00f.mp3", "91f3619fbf4a3b1c48100b55173b1c21ef33406f8c062ebca213cf84598ffdc94a948c6feae6c3b82f1ced3fe51ffc51");
+WrtSongLine("3036638", "翻开一本旧日记 ", "如瓜 ", "0", "20", "http://mb.songtaste.com/201204222219/7b4cb7bf1859b40e1d4bec3f44d1b0b2/b/b4/b40165394a8cb8024d8f7870efaf2154.mp3", "5dd0bb04800fa79c6c0cf930d97d310f48dbdebc277760aec415e320ba47489ff08dcfa8fc5bf0ba2f1ced3fe51ffc51");
+WrtSongLine("743379", "终极梦想家 ", "电影原声　 ", "0", "21", "http://md.songtaste.com/201204222219/9b40f88b237475f5666e87a0a82d52ed/d/d8/d8d802f50aad3d842f82b8160c524446.mp3", "e45561d8330b03c6426fbca03238c8aaac2bc13884b0fb8c612533d8a19b2b2718c749a78fa709cf2f1ced3fe51ffc51");
+WrtSongLine("3023250", "〈　I\'ll Be Your Strength　〉　美丽的钢琴前奏　女声一出就俘获你的心　 ", "Ru花一般绽放　﹌ ", "0", "22", "http://m4.songtaste.com/201204222219/8458244769811c87eded4c65422ad052/4/44/442a6bfd629f23346d864bfcc39f79f3.mp3", "180ad351fa4d14c0ee98cbbced61c381c6f17f9636d9f211cdb08aa9ea0a2eea8a22fff7709951cf2f1ced3fe51ffc51");
+WrtSongLine("408641", "Tous Les Maux d\'Amour ", "Norma Ray ", "0", "23", "http://m1.songtaste.com/201204222219/3b6d3c63e3f38ba31836bff1a38a436c/1/10/107eeb47642021f63b912fb032de8c6a.mp3", "7b80f0c2162aee0483abb778c6f03b3d17e0750faffc959c98f7a799bd2da0b5aadf78b072d6bef92f1ced3fe51ffc51");
+WrtSongLine("2932425", "Warrior Sword ", "Pagan Reign ", "0", "24", "http://m4.songtaste.com/201204222219/f14edd692cae5a5ef81d5dc901bc3d06/4/40/40393236e5c9f01b393e5608acff024d.mp3", "1e37bf7b309dc8800770129506582793e8fa0861c2ea25dc0bef9412c2d64b6c0c61c33cfcbcf5302f1ced3fe51ffc51");
+WrtSongLine("3035869", "〈　Bus Stop　〉节奏至上 轻快惬意的感觉 ", "′Vio ", "0", "25", "http://m3.songtaste.com/201204222219/53d370fbb3024cf08d1cbcf30407bbca/3/35/352695c1aee48b006e4973de37ee72a0.mp3", "b091a8a1dd4e237be86c7d3ae022cf7e077153470d1090d68ccf60c3b0436ee857fb4608ab1eadaa2f1ced3fe51ffc51");
+WrtSongLine("2965876", "回来吧 坏人 通透女声瞬间爆发  女神气场十足 ", "45°ss ", "0", "26", "http://mb.songtaste.com/201204222219/c8073492ca2528bb0fef8e38eb38e337/b/b8/b855a92722b1bf03607ed1579aeb28dc.mp3", "34c39b04ea8bce3d5e879864e0a38315d02bb9d4867b1696904ac6759dd8cc5709ec9153d62c06c62f1ced3fe51ffc51");
+WrtSongLine("2980496", "连续剧 ", "容祖儿 ", "0", "27", "http://mf.songtaste.com/201204222219/6f4ec5d9ea1b045a64fee97250a9b65e/f/fd/fdfaddace72d58ac900a681b06842995.mp3", "fdddd5ca20e83904361a50387539e56b07b023c6ed185b50c67cdd7406aa25b4e594ee780377ecea2f1ced3fe51ffc51");
+</script>
+  
+    </UL>
+ </DIV> 
+  
+
+</div>
+
+<div style="float:left;" id="left_music_div">
+<div class="songName">
+	<p class="p_tit" >歌曲试听：<b><span id=songInfo></span></b></p>
+</div>
+
+<SCRIPT type=text/javascript>
+players();
+
+$().ready(function(){
+	$("#ratesong").click(function(e){
+		var songid = cur_sid;
+		var rateurl = '/info_oper.php?tag=add_song_grade&songid='+songid+'&rating=5';
+		$.ajax({
+			type : "GET",
+			url : rateurl,
+			success : function(msg){
+				switch(msg){
+					case 'nologin':
+						alert('对不起，您需要登录才能对此歌曲进行评分');break;
+					case 'rated':
+						alert('您以前已经认为这首歌好听了,不能重复评价');break;
+					case 'timelimit':
+						alert('对不起，两次歌曲评分至少间隔1分钟');break;
+					case 'norateself':
+						alert('对不起，您不能给自己首次推荐的歌曲评分');break;
+					case 'rateok':
+						alert('您的评分已经生效，感谢您对歌曲的支持');break;
+				}
+			}
+		});
+		e.preventDefault();
+	});
+
+	$("#addfavsong").click(function(e){
+		if(!cur_sid) {
+			alert("找不到收藏歌曲");
+		}
+		var $url = '/info_oper.php?tag=addfavsong&songid='+cur_sid;
+		$.ajax({
+			type : "GET",
+			url : $url,
+			success : function(msg){
+				if(msg == 'nologin') {
+					alert('对不起，您需要登录才能操作');
+				}
+				else if (msg == 'success'){
+					alert('该首歌已成功加入您的收藏');
+				}
+			}
+		});
+		e.preventDefault();
+	});
+})
+</SCRIPT>
+
+<input type="hidden" name="songid">
+<style type="text/css">  
+	#show_logo{ width:348px; height:25px; padding-top:4px; padding-bottom:4px; background-color:#e9ebef; border-bottom:1px solid #959595; border-left:1px solid #959595; border-right:1px solid #959595 ;display:none }
+	.come_01{ color:#666666; font-size:12px; line-height:25px; float:left }
+	.come_url{ width:190px; height:25px; padding-left:10px; font-size:12px; line-height:25px; overflow:hidden; float:left }
+	.to_url{ font-size:12px; line-height:25px; float:left }
+	.come_url a{ color:#666666; text-decoration:underline }
+	.come_url a:hover{ color:#666666; text-decoration:underline }
+	.to_url a{ color:#666666; text-decoration:underline }
+	.to_url a:hover{ color:#666666; text-decoration:underline }
+	</style>	
+	<div id="show_logo">
+		
+	</div>	
+<div class="p_fun">
+　<a class='fav underline' id='addfavsong' href="javascript:void(0);" >收藏</a>　
+<a id='ratesong' href="javascript:void(0);" >非常好听</a>　
+<a href="javascript:downSong();" style="color:red">下载歌曲</a>　
+<span class=""><a href="#" onclick=javascript:pu.doPlayNext(-1);><img src="http://image.songtaste.com/images/pre.gif" align=absmiddle border=0></a> <a href="#" onclick=javascript:pu.doPlayNext(-1);>上一首</a> 
+<a href="#" onclick=javascript:pu.doPlayNext(1);><img src="http://image.songtaste.com/images/net.gif" align=absmiddle border=0></a> <a href="#" onclick=javascript:pu.doPlayNext(1);>下一首</a> 
+</span>
+</div>
+
+<div  class="p_lyric_tit">　歌词</div>
+<div class="p_songlist p_lyric_div" id="songWords">
+<p class="p_lyric" id="lyric">
+	
+</p>
+ </DIV>
+  
+  
+
+  <DIV class=hd id="lyric3036650">暂时没有歌词</div>
+  <DIV class=hd id="lyric3017255">厚道拿歌!!<br />喜欢的、潜水拿歌的请先&nbsp;&nbsp;UP&nbsp;&nbsp;【好评】!!!<br />~~~~~~~~~~~~~~~~~~~~~~~~~······<br />找歌不容易、、请珍惜推荐者的劳动成果!<br /><br />【A Little Story】-Valentin</div>
+  <DIV class=hd id="lyric2458826">喜欢音乐的朋友,有空请到我Q群 声缘音乐(130875066) 至爱音乐 (104370251) 心弦音乐(91175351) 来坐坐</div>
+  <DIV class=hd id="lyric1478431">暂时没有歌词</div>
+  <DIV class=hd id="lyric2505349">Jewel - Simple Gifts<br /><br />Its a gift to be simple, Its a gift to be free,<br />Its the gift to come down where you ought to be,<br />And when we find ourselves in the place just right,<br />Will be in the valley of love and delight.<br />When true simplicity is gained,<br />To bow and to bend, we will not be ashamed,<br />To turn, turn, will be our delight,<br />Till by turning, turning we come round right<br /><br />Its a gift to be simple, Its a gift to be free,<br />Its a gift to come down where you ought to be,<br />And when we find ourselves in the place just right,<br />Will be in the valley of love and delight.<br />When true simplicity is gained,<br />To bow and to bend, we will not be ashamed,<br />To turn, turn, will be our delight,<br />Till by turning, turning we come round right<br />Till by turning, turning we come round right</div>
+  <DIV class=hd id="lyric2496498">外面的世界<br /><br />词:齐秦/超人特工队&nbsp;&nbsp;曲:齐秦/超人特工队&nbsp;&nbsp;唱:超人特工队/王伟美<br /><br />在很久很久以前 你拥有我 我拥有你<br />在很久很久以前 你离开我 去远空翱翔<br /><br />外面的世界很精彩 外面的世界很无奈<br />当你觉得外面的世界很精彩 我会在这里衷心的祝福你<br /><br />当我踏入这个城市 感觉真的很大 美女真的很辣 城管(黄牛)真的很…<br />一开始我什么都不知道 还好有朋友教 怎么吹老板牛皮 马子应该怎么泡<br />我看到 很多乞丐其实不差钱 我看到 很多白领因为加班住院<br />我看到 霓虹灯下那些凋谢的花蕾 男人不爱女人爱男人(游戏)有时也挺对<br />有人一大早起床 有人去睡觉 有人为了赚钱 去走歪门邪道<br />有人说睁只眼闭只眼 才是生存之道 刚一开始 我满脑子全都是问号<br /><br />什么是对错 太多的流言蜚语 有难过 你必须学会放弃<br />But I don’t care … I just keep on going … Go …<br /><br />外面的世界很精彩 外面的世界很无奈<br />当你觉得外面的世界很精彩 我会在这里衷心的祝福你<br /><br />我开始关注这商标是否是名牌 我喜欢的女孩呢 她也喜欢名牌<br />就努力买给她名牌 但希望她明白 名牌是次要的 感情才是重要的<br />我学会一些手段 学会打扮 学会在一些专家面前 听他扯蛋<br />有时候失落 寂寞 但不耽误工作 要相信自己 而不是去 高空坠落<br />有几次回家 感觉到奇怪了 那些熟悉的街道早都不见了<br />其实不重要了 外面的世界把我变了 因为我在乎的已经变成现在了<br /><br />什么是对错 太多的流言蜚语 有难过 你必须学会放弃<br />But I don’t care … I just keep on going … Go …<br /><br />外面的世界很精彩 外面的世界很无奈<br />当你觉得外面的世界很无奈 我还在这里耐心的等着你</div>
+  <DIV class=hd id="lyric2367534">-<br />-<br />-<br />-<br />-<br />-<br />-------------------------------------------------<br />&nbsp;&nbsp; Ｂest Ｍusic Ｉn Ｄance Ω Ｔune<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; ¤ 旗舰总部群：16255777&nbsp;&nbsp;¤<br />&nbsp;&nbsp;&nbsp;&nbsp; ¤ 时尚潮音社：120049995 ¤<br />&nbsp;&nbsp;&nbsp;&nbsp; ¤ 潮女集中营：116591847 ¤<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp; 〆 戴 上 耳 機 丶 遠 離 喧 囂 〆　<br />-------------------------------------------------<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≮ 友情鏈接 ≯<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; Ｓｕ1、遇而安&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27395588<br />&nbsp;&nbsp;&nbsp;&nbsp; Smile〃花。街&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;92707093<br />&nbsp;&nbsp;&nbsp;&nbsp;╰→音oo樂ご加點糖□&nbsp;&nbsp;&nbsp;&nbsp;101880905<br />&nbsp;&nbsp;&nbsp;&nbsp; 右岸(时左时右)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 86258755<br />&nbsp;&nbsp;&nbsp;&nbsp; 简美&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72749664<br />&nbsp;&nbsp;&nbsp;&nbsp; 且听天下 ℡Musicゞ|&nbsp;&nbsp;&nbsp;&nbsp;26149782<br />&nbsp;&nbsp;&nbsp;&nbsp; 同音乐私奔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16786108<br />&nbsp;&nbsp;&nbsp;&nbsp; ◆゛Ｔaste Ｓtar◆&nbsp;&nbsp;&nbsp;&nbsp; 119566614<br />&nbsp;&nbsp;&nbsp;&nbsp; Ｍerely an Interlude&nbsp;&nbsp; 101829154<br />&nbsp;&nbsp;&nbsp;&nbsp; <br /><br />&nbsp;&nbsp;&nbsp;&nbsp; 小隐隐美食集中营<br />&nbsp;&nbsp;&nbsp;&nbsp; http://yptxtc.taobao.com/</div>
+  <DIV class=hd id="lyric3036651">暂时没有歌词</div>
+  <DIV class=hd id="lyric3036657">暂时没有歌词</div>
+  <DIV class=hd id="lyric2809092">Misplaced trust and old friends<br />Never counting regrets<br />By the grace of God I do not rest at all<br />In new England as the leaves change<br />The last excuse that I'll claim, <br />I was a boy who loved a women like a little girl<br />And still I can't let you be<br />Most nights I hardly sleep<br />Don't take what you don't need from me<br />It's just a drop in the ocean<br />A change in the weather<br />I was praying that you and me might end up together<br />Its like wishing for rain as I stand in the desert<br />But I’m holding you closer than most,<br />'Cause you are my,<br />Heaven doesn't seem far away anymore no no<br />Heaven doesn't seem far away<br />Heaven doesn't seem far away anymore no no<br />Heaven doesn't seem far away</div>
+  <DIV class=hd id="lyric1935262">烟蒂群：◣★潮流音乐会所★◢<br /><br />超级群门牌号：15628800<br /><br />欢迎音乐爱好者的加入、</div>
+  <DIV class=hd id="lyric1361376">No, no me mires así,por favor <br />请不要，不要这样的看着我 <br />Por tus ojos se opaca mi voz <br />因为你的双眸模糊着我的声线 <br />Sé muy bien lo que quieres <br />我很了解你所爱的一切 <br />y sé tus razones <br />也了解你的缘由 <br /><br />Más no, no me mires así por favor <br />请不要再，再这样的看着我 <br />Que no ves que tus ojos me dan pavor <br />你没看见你的双眼给我的恐惧 <br />Aunque sé, que precisas de tu encanto ni?a <br />尽管我知道，你在展现你的魅力，亲爱的 <br /><br />【Coro】 <br />Bruja de noche, hada de día <br />夜晚巫女，白天仙女 <br />Que más quieres de mí <br />你还要我什么 <br />Si tomas mi cuerpo <br />如果你手握我的躯体 <br />a tu antojo y medida <br />就凭你一时高兴 <br />? Cúanta ironía ! <br />多么讽刺啊 ！ <br />Quién lo iba a decir <br />我去向谁诉苦 <br />Que el fuego en tus ojos <br />你眼中的爱火 <br />es magia bendita, Ni?a bonita <br />是祝福的魔咒，亲爱的 <br />Mía, tan mía, mi ni?a... <br />我亲爱的，亲爱的。。。 <br /><br />No, no me mires así,por favor <br />请不要，不要这样的看着我 <br />Que en tus ojos me asalta el temor <br />你可怕的的眼神正攻击我 <br />Yo no tengo razones ni quiero encontrarlas <br />我没有反抗也没有心甘情愿 <br /><br />Hoy no, no me hagas hablar, por favor <br />今天，请不要使我说些什么 <br />Sólo besa mis labios y olvídalo <br />只要吻着我的双唇，把一切都遗忘 <br />Que no ves que en palabras se nos va la vida <br />你没看见，在口头上我们已遗忘了生命</div>
+  <DIV class=hd id="lyric2935406">暂时没有歌词</div>
+  <DIV class=hd id="lyric2841934">Picture perfect memories<br />&nbsp;&nbsp;记载美好回忆的照片<br />&nbsp;&nbsp;scattered all around the floor<br />&nbsp;&nbsp;都散落在地板上<br />&nbsp;&nbsp;Reaching for the phone<br />&nbsp;&nbsp;伸手去拿电话<br />&nbsp;&nbsp;'cause I can't fight it anymore<br />&nbsp;&nbsp;因为我再也无法抗拒 <br />&nbsp;&nbsp;And I wonder if I ever cross your mind<br />&nbsp;&nbsp;我想知道我是否偶尔浮现在你的脑海 <br />&nbsp;&nbsp;For me it happens all the time<br />&nbsp;&nbsp;对我来说这是很经常发生的<br />&nbsp;&nbsp;It's a quarter after one<br />&nbsp;&nbsp;已是凌晨一点十五分 <br />&nbsp;&nbsp;I'm all alone and I need you now<br />&nbsp;&nbsp;我独自一人 此刻我需要你 <br />&nbsp;&nbsp;Said I wouldn't call<br />&nbsp;&nbsp;说过我不会打电话<br />&nbsp;&nbsp;but I lost all control and I need you now<br />&nbsp;&nbsp;但是我失去了控制 此刻我需要你<br />&nbsp;&nbsp;And I don't know how I can do without<br />&nbsp;&nbsp;没有你 我无所适从<br />&nbsp;&nbsp;I just need you now<br />&nbsp;&nbsp;此刻我只需要你<br />&nbsp;&nbsp;Another shot of whiskey<br />&nbsp;&nbsp;又喝了一杯威士忌<br />&nbsp;&nbsp;can't stop looking at the door<br />&nbsp;&nbsp;不可遏制地向房门张望<br />&nbsp;&nbsp;Wishing you'd come sweeping<br />&nbsp;&nbsp;期待你翩翩而至<br />&nbsp;&nbsp;in the way you did before<br />&nbsp;&nbsp;就像以前你做的那样<br />&nbsp;&nbsp;And I wonder if I ever cross your mind<br />&nbsp;&nbsp;我想知道我是否曾经浮现在你的脑海<br />&nbsp;&nbsp;For me it happens all the time<br />&nbsp;&nbsp;对我来说这是经常发生的<br />&nbsp;&nbsp;It's a quarter after one<br />&nbsp;&nbsp;已是凌晨一点十五分<br />&nbsp;&nbsp;I'm a little drunk and I need you now<br />&nbsp;&nbsp;我现在微醉 此刻我需要你<br />&nbsp;&nbsp;Said I wouldn't call<br />&nbsp;&nbsp;我说过我不会打电话<br />&nbsp;&nbsp;but I lost all control and I need you now<br />&nbsp;&nbsp;但是我失去了控制 此刻我需要你<br />&nbsp;&nbsp;And I don't know how I can do without<br />&nbsp;&nbsp;没有了你 我无所适从<br />&nbsp;&nbsp;I just need you now<br />&nbsp;&nbsp;此刻我只需要你<br />&nbsp;&nbsp;Guess I'd rather hurt than feel nothing at all<br />&nbsp;&nbsp;我宁愿遍体鳞伤也不愿麻木不仁<br />&nbsp;&nbsp;It's a quarter after one<br />&nbsp;&nbsp;已是凌晨一点十五分<br />&nbsp;&nbsp;I'm all alone and I need you now<br />&nbsp;&nbsp;我微醉 此刻我需要你<br />&nbsp;&nbsp;And I said I wouldn't call<br />&nbsp;&nbsp;我说过我不会打电话<br />&nbsp;&nbsp;but I'm a little drunk and I need you now<br />&nbsp;&nbsp;但是我微醉了 此刻我需要你<br />&nbsp;&nbsp;And I don't know how I can do without<br />&nbsp;&nbsp;没有你 我无所适从<br />&nbsp;&nbsp;I just need you now<br />&nbsp;&nbsp;此刻我只需要你<br />&nbsp;&nbsp;I just need you now<br />&nbsp;&nbsp;此刻我只需要你<br />&nbsp;&nbsp;Oh baby I need you now<br />&nbsp;&nbsp;哦，宝贝 此刻我只需要你</div>
+  <DIV class=hd id="lyric3036656">暂时没有歌词</div>
+  <DIV class=hd id="lyric733069">暂时没有歌词</div>
+  <DIV class=hd id="lyric3036615">歌名：Come Around<br />歌手：M.I.A.和Timbaland<br /><br />[M.I.A.]<br />Check my coat in and I paid the dollar,<br />Side-kick rings, what's up? holla!<br />Text the address, I'll see you lata,<br />Baby come down<br />Come down, come down, come down<br />run down, run down, run down<br />Run, make a run, make a run, make a run...<br />A dun da da dun da da dun....<br />Beat goes on<br />A dun da da dun da da dun ....<br />Beat goes on<br /><br />In a faraway land we got shit made<br />Ray-Ban shades, warheads laid<br />Babies born in air-raids<br />My girls roam the Everglades<br />Indian tribesmen gamble spades<br />Indian chicks, they get men laid<br />Milk and honey, smoke high-grade<br />Gold and diamond, gems and jades<br />Ride up on our tanks, invade<br />Blow up thing to save our name and<br />Mina, Rina, Tina, Sabrina<br />Being a super Indian babe<br />We black market, we black made<br />We hit shit out when it rains<br />Would you come down and catch my train?<br />Would you run down and play this game?<br /><br /><br />[Timbaland]<br />Baby girl<br />You and me, need to go to your teepee<br />The moon is full, and I'm shining.<br />Baby, I know you see me.<br />Put a hump or two on your back<br />Jst like that<br />Oh girl you're on fire.<br />I don't wanna be in love with you<br />Imma just break you off and say goodbye<br />The night is young<br />Don't make me wait,<br />You just might miss your chance.<br />I'm gon' tell you the truth<br />Timbaland, I'm the motherfuckin' man.<br />Today's the day, girl, let me get that<br />Don't get mad<br />In fact, let me hit that<br />I've been overkilling them, I break backs<br />Come down, run down<br />Girl, where your place at?<br /><br />[Timbaland]<br />Don't get it twisted baby girl, baby boy 'cause Timbaland ain't dead<br />Don't get it twisted baby girl, baby boy 'cause Timbaland ain't dead</div>
+  <DIV class=hd id="lyric3036655">oh, my love, my darling<br />i've hungered for your touch <br />alone, lonely time <br />and time goes by so slowly<br />yet time can do so much<br />are you still mine<br />i need your love<br />i need your love <br />god, speed your love to me<br />lonely rivers flow to the sea to the sea <br />to the open arms of the sea<br />lonely river sigh, wait for me, wait for me<br />i'll be coming home<br />wait for me<br />oh, my love, my darling<br />i've hungered, hungered for your touch <br />alone, lonely time<br />and time goes by so slowly yet time can do so much<br />are you still mine,<br />i need your love i need your love,<br />god speed your love to me.<br />editor:glyhb@sina.com<br />http: lrc.bzmtv.com</div>
+  <DIV class=hd id="lyric132166">Sabra Girl ——呼吸。在遥远的山边。<br /><br />Lonely the life, that once I led<br />Strange the paths, on which we tread<br />Led me to you, unlikely but true<br />Sabra girl, clouding my view<br /><br />Rainy the day, the first time we met<br />Deep was the talk, forever my debt<br />It didn＇t seem wrong, to sing a sad song<br />Sabra girl, soon you＇d be gone<br />Early the morning, and sad the goodbye<br />With a wave of your hand and, a smile of your eye<br />So lately did meet, no sooner depart<br />Sabra girl, homeward must start<br /><br />Rosy the lines that you wrote with your hand<br />Reading between them to misunderstand<br />I made the mistake you said not to make...<br /><br />Yes, reading your letters, conviction did grow<br />I thought it a chance, I knew I must go<br />It＇s hard to believe I could be so naive<br />Sabra girl, flattered but deceived<br /><br />Now you just told me that friendship is all<br />I＇m forced to repair the breach in my wall<br />Illusions and dreams, as usual, it seems<br />Sabra girl, they＇ve been my downfall<br /><br />Lonely the life, and dismal the view<br />Closed is the road that leads to you<br />Since better can＇t be, as friends we＇ll agree<br />Sabra girl, time will cure me</div>
+  <DIV class=hd id="lyric3036593">暂时没有歌词</div>
+  <DIV class=hd id="lyric3036638">暂时没有歌词</div>
+  <DIV class=hd id="lyric743379">终极梦想家<br /><br />音乐是最好的回忆药剂，<br />它会像一把钥匙，<br />慢慢从耳朵，飘进脑海，<br />一点点的蔓延开来，直至心脏。<br />最后，旋开最深处的心门。<br /><br />那些隐约可以记起来的事情。<br />都只剩下片段。<br /><br />五岁的时候，<br />他站在爸妈的身后好奇的望着这个庞大的世界。<br />在卖雪糕的阿姨不肯给他一支大冰糕的时候，<br />愤怒的撅起嘴。<br />那时候，他的愿望，<br />是快快长成一个大人，<br />可以有很多的钱，<br />买很多很多的玩具和冰糕。<br /><br />九岁的时候，<br />在一节美术课上，<br />他红着一张被颜料蹭的五颜六色的小脸。<br />心里却像个骄傲的英雄一样，<br />接受着老师的表扬。<br />他紧紧攥着画笔的手，<br />因为紧张而出了汗。<br />那时候，他的愿望，<br />是成为一个优秀的画家。<br />画出世界上最美的图画。<br /><br /><br />十二岁的时候，<br />他独自穿过医院冰冷而幽长的走廊，<br />鼻腔里充斥着消毒水刺鼻的味道。<br />刚刚失去亲人的女人在嘶声痛哭，<br />还有，白色被单下躺着的一张蜡黄的面孔。<br />他在恐惧的窒息下用力的加快了脚步。<br />那时候，他的愿望，<br />是成一名医生，<br />一个无所不能的医生。<br />可以治好所有人的病。<br /><br />十五岁的时候，<br />他参加了城市模型大赛，<br />目不暇接的看着天空中飞过的各种各样的小飞机，<br />像一场自由自在天空的集会。<br />偶尔有一两只凑热闹的麻雀，从一边拍着翅膀飞走。<br />他坐在翠绿的草地上，仰着脸庞，<br />第一次觉得自己和天空是如此的接近，<br />好像呼吸的距离就能够触碰的到。<br />那时候，他的愿望，<br />是成为一个插上翅膀就能飞的人。<br />随时随地的，触摸天空。<br /><br />十八岁的时候，<br />他在大学的阶梯教室，<br />听着导师讲述那些闪闪发亮的人们的传奇。<br />他年轻的血液开始慢慢沸腾。<br />当天晚上，<br />他把床头贴着的明星画轻轻的撕下。<br />怀抱着巴菲特的自传安静入眠。<br />那时候，他的愿望，<br />是成为一个金融巨鳄，<br />一个巅峰，一个传奇。<br /><br /><br />二十二岁的时候，<br />他背着公文包行走在阴暗的地下通道，<br />一边从身上摸索出一块硬币丢给身边的乞丐，<br />一边跟妈妈打着电话。<br />他和所有行色匆匆穿梭在这个欲望都市的人一样。<br />在等车的间隙，喝光一杯咖啡。<br />然后眯起眼睛望向楼群间的灰色天空。<br />那时候，他的愿望，<br />是找到自己的位置。<br />在这个庞大社会群体的，<br />小小的位置。<br /><br /><br />现在，那些无数的愿望，<br />那些寄托着忧伤和快乐的各种妄想。<br />它们在漫长的生命种连接成了一条蜿蜒的长河。<br />看不清来路，<br />也不会有尽头。<br /><br />它随着我们一点点长大，<br />一点点成熟，<br />渐渐的，变幻着颜色。<br /><br />但总有一天，<br />你会找到最真切的一个。<br />它会像曾经的无数个一样，<br />继续给你力量，<br />继续陪伴你，勇敢的走下去。<br /><br />它就叫做。<br />梦想。<br /><br />（2008 11 16 By:Tomi 原创勿转）</div>
+  <DIV class=hd id="lyric3023250">Life can be hard sometimes<br />Too many things on your mind<br />And when the storm is closing in<br />You have no shelter from the wind and then<br /><br />You can scared sometimes<br />And even lose your will to fight<br />When you can't face the world alone<br />You've lost the faith within your soul and<br />When you're down and feeling hurt<br />You just have to say the word<br />When the walls begin to break<br /><br />I'll be your strength<br />The one you can lean on<br />I'll be the ground<br />That you can build your world upon<br />I'll be your friend<br />When you just can't go on<br />When it's more than you can take<br />I'll be your strength<br /><br />I will stand by your side<br />Whether you are wrong or right<br />I'll see you trough all your mistakes<br />And all the choices that you make<br />When you are caught up in the rain<br />You just have to call my name<br />When the walls begin to break<br /><br />I'll be your strength<br />The one you can lean on<br />I'll be the ground<br />That you can build your world upon<br />I'll be your friend<br />When you just can't go on<br />When it's more than you can take<br /><br />I will be there all the way<br />when the day comes<br />When I am in need<br />I hope that you will be there for me<br /><br />I'll be your strength<br />The one you can lean on<br />I'll be the ground<br />That you can build your world upon<br />I'll be your friend<br />When you just can't go on<br />When it's more than you can take<br />I'll be your strength</div>
+  <DIV class=hd id="lyric408641">.</div>
+  <DIV class=hd id="lyric2932425">暂时没有歌词</div>
+  <DIV class=hd id="lyric3035869">暂时没有歌词</div>
+  <DIV class=hd id="lyric2965876">ne aneui ni hyanggi oneureun obso<br />闻不到你的气味了<br /><br />niga omneun nan oneureun obso<br />没有你 我也不会存在<br />eumagi heullo ne nunmuldo heullo Baby don’t leave me baby don’t live me<br />音乐流动著 我的眼泪流动著 Baby don’t leave me baby don’t live me<br /><br />RAP：Hey shisuyotdanun gumal apuge narul ttaeryo<br />RAP：Hey 误会的话语伤了我好深<br /><br /><br />RAP：jigyowotyoydanun mal aupuge nae gwirul ttaeryo iron jangnanchijima<br />RAP： 无聊的言语不断传脑 不要这样开玩笑<br /><br /><br />RAP：yakhan nan munojyoboryo no anin sarangun No! I told you someone is you<br />RAP： 我快崩溃了 你不是我爱的那个人 不! 我说过那个人就是你啊<br /><br />dorawa nappun no…<br />回来吧 坏心的你<br />ne aneui ni hyanggi oneureun obso<br />闻不到你的气味了<br /><br /><br />niga omneun nan oneureun obso<br />没有你 我也不会存在<br /><br />eumagi heullo ne nunmuldo heullo Baby don’t leave me baby don’t live me<br />音乐流动著 我的眼泪流动著 Baby don’t leave me baby don’t live me<br /><br /><br />RAP：songarak sairo neukkyojidon noye son ne moril nomgimyo kiseuhadon noye ipsul<br />RAP：你的手彷佛在的手指之间 你的嘴吻了我的额头<br /><br />RAP：iroke meireul sara nowa hamkke nan kkumeso kkeji mothe geuriwo michyo nan<br />RAP： 每天都像在与你生活 无法从梦中醒来 想到疯了我<br /><br />Hey non nega chumchuneun iyu nega norehaneun iyu nega saranghan-gon is you sumswil suga obso<br />Hey 你是我舞动的理由 我歌唱的理由 我最爱的就是你 呼吸瞬间停止<br />dorawa nappun no…<br />回来吧 坏心的你…<br /><br /><br />ne aneui ni hyanggi oneureun obso<br />闻不到你的气味了<br /><br />niga omneun nan oneureun obso<br />没有你 我也不会存在<br /><br /><br />eumagi heullo ne nunmuldo heullo Baby don’t leave me baby don’t live me<br />音乐流动著 我的眼泪流动著 Baby don’t leave me baby don’t live me<br /><br />RAP：songarak sairo neukkyojidon noye son ne moril nomgimyo kiseuhadon noye ipsul<br />RAP：你的手彷佛在的手指之间 你的嘴吻了我的额头<br /><br /><br />RAP：iroke meireul sara nowa hamkke nan kkumeso kkeji mothe geuriwo michyo nan<br />RAP： 每天都像在与你生活 无法从梦中醒来 想到疯了<br /><br />ne aneui ni hyanggi oneureun obso<br />闻不到你的气味了Baby don’t leave me baby don’t live me<br /><br /><br />RAP：iroke meireul sara nowa hamkke nan kkumeso kkeji mothe geuriwo michyo nan<br />RAP：每天都像在与你生活 无法从梦中醒来 想到疯了我</div>
+  <DIV class=hd id="lyric2980496">暂时没有歌词</div>
+
+<SCRIPT type=text/javascript>
+var pu;
+window.onload=function(){
+pu = new PlayerUtils(0);
+pu.doPlay();
+pu.utils(0);
+}
+</SCRIPT>
+</SPAN></div>
+</div>
+<link rel="stylesheet" href="http://www.songtaste.com/plugin/fancybox/jquery.fancybox-1.3.4.css" type="text/css" />
+<script src="http://www.songtaste.com/plugin/fancybox/jquery.fancybox-1.3.4.js"></script>
+<script type="text/javascript">
+var lightbox_t = false;
+$(document).ready(function() {
+	$("#iframe").fancybox({
+		'hideOnContentClick': true
+	});
+	lightbox_t = showLightbox();
+});
+
+function showLightbox() {
+	var login_status = 0;
+	if(!checkLogin()) {
+		login_status = 1;
+	}
+	else {
+		var ses = getCookie("CookDmID");
+		if(ses && ses >0) {
+			return;
+		}
+		else if(ses < 0){
+			login_status = 2;
+		}
+		else {
+			$.ajax({
+				url: "/info_oper.php?tag=checkbind",
+				async: false,
+				success : function(data) {
+					if(data==1){
+					   login_status = 0;
+					   return;
+					}
+					login_status = 2;
+				}
+			});
+		}
+	}
+	if(login_status == 0) return false;
+	if(login_status == 1) {
+		var t = setTimeout(showLoginLightbox,30000);
+		return t;
+	}
+	if(login_status == 2) {
+		var t = setTimeout(showBindLightbox,30000);
+		return t;
+	}
+}
+
+function clearLightbox(lightbox_t){
+	if(lightbox_t === false) return;
+	clearTimeout(lightbox_t);
+	return showLightbox();
+}
+
+function showLoginLightbox() {
+	parentAct = function(){ $.fancybox.close();if(lightbox_t!==false)lightbox_t=clearLightbox(lightbox_t); };
+		$("#iframe").attr('href','http://2012.songtaste.com/st/lightbox.shtml')
+		.click();
+}
+
+function showBindLightbox() {
+	parentAct = function(){ $.fancybox.close();if(lightbox_t!==false)lightbox_t=clearLightbox(lightbox_t); };
+		$("#iframe").attr('href','http://2012.songtaste.com/st/lightbox_bind.shtml')
+		.click();
+}
+function checkLogin(){
+	var uid = getCookie("CookID");
+	if ( uid == null || uid == "" || uid==0 ) 
+	{
+		return false;	
+	}
+	return true;
+}
+document.domain = "songtaste.com";
+var parentAct = function(fuc) {};
+function getCookie(name) { 
+	var arg = name + "="; 
+	var alen = arg.length; 
+	var clen = document.cookie.length; 
+	var i = 0; 
+	while (i < clen) { 
+		var j = i + alen; 
+	    if (document.cookie.substring(i, j) == arg) { 
+	      return getCookieVal(j); 
+	    } 
+		i = document.cookie.indexOf(" ", i) + 1; 
+		if (i == 0) break; 
+	} 
+	return null; 
+} 
+function getCookieVal(offset) { 
+	var endstr = document.cookie.indexOf (";", offset); 
+	if (endstr == -1) { 
+		endstr = document.cookie.length; 
+	}
+	return unescape(document.cookie.substring(offset, endstr)); 
+} 
+function GetRequest() {
+   var url = location.search; //获取url中"?"符后的字串
+   var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]= strs[i].split("=")[1];
+      }
+   }
+   return theRequest;
+}
+</script>
+<div style="display:none"><a class="iframe" id="iframe" href="http://2012.songtaste.com/st/lightbox.shtml"></a></div>
+<div id="playListImg" style="clear:both">
+<!-- 请置于所有广告位代码之前 -->
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+BAIDU_CLB_preloadSlots("296493");
+</script>
+<!-- 广告位：弹窗连播歌曲页面4条文字链 -->
+<script type="text/javascript">BAIDU_CLB_fillSlot("296493");</script>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17903945-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+ 
+</script>
+
+</BODY></HTML>

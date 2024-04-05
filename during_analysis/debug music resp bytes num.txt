@@ -1,0 +1,71 @@
+
+4,803,981 
+9607962
+
+9604320
+
+IE9:
+Key	Value
+Content-Length	4803981
+
+code:
+		respDataLen	0x00494d8d	int
+
+0x00494d8d == 4803981
+
+
++		Headers	{Connection: Keep-Alive
+Proxy-Connection: Keep-Alive
+Age: 2042994
+srvtag: CAIYUN-SR024
+Accept-Ranges: bytes
+Content-Length: 4803981
+Cache-Control: max-age=86400
+Content-Type: audio/mpeg
+Date: Tue, 20 Mar 2012 16:08:14 GMT
+Expires: Wed, 21 Mar 2012 16:08:14 GMT
+Last-Modified: Thu, 23 Dec 2010 03:14:25 GMT
+Server: nginx/0.8.36
+Via: 1.0 qhd183:80 (Cdn Cache Server V2.0), 1.0 lyg143:80 (Cdn Cache Server V2.0), 1.0 SC-SZ-06
+
+}	System.Net.WebHeaderCollection
+
+
+again read out :
+0x0005a42c == 369708
+
+
+		bufStartPos	0x0048f000	int
+		bytesToWrite	0x00000000	int
+		remainByteNum	0x0048ebe9	int
+		respDataLen	0x0048f000	int
++		this	{downloadSongtasteMusic.songtaste}	downloadSongtasteMusic.songtaste
+
+
+		bytesToWrite	0x0048e1c9	int
+		diffLen	0x00000e37	int
++		fs	null	System.IO.FileStream
+		fullnameToStore	"D:\\download\\360se\\www.songtaste.com\\.Ti Аmo珍藏  超 好聽  純音樂 - .Ti Аmo珍藏  超 好聽  純音樂.mp3"	string
+		remainByteNum	0x0048e1c9	int
+		respDataLen	0x0048f000	int
++		this	{downloadSongtasteMusic.songtaste}	downloadSongtasteMusic.songtaste
+
+
+		bytesToWrite	0x00ac0b9b	int
+		diffLen	0x00000e3b	int
++		fs	null	System.IO.FileStream
+		fullnameToStore	"D:\\download\\360se\\www.songtaste.com\\The Beginning - The Beginning.mp3"	string
+		remainByteNum	0x00ac0b9b	int
+		respDataLen	0x00ac19d6	int
++		this	{downloadSongtasteMusic.songtaste}	downloadSongtasteMusic.songtaste
+
+
+readToEndStrLen = 0x00a3d158
+respDataLen	0x00ac19d6	int
+
+code get:
+http://mb.songtaste.com/201204131620/63ed30ed0cc49a5f6838c5a65da69f42/b/b2/b21168e4b5fdbfab08a59f9467baa9e4.mp3
+remain in IE9；
+http://mb.songtaste.com/201204131548/4e70aeb76cc35c8b3808359a7eebac7d/b/b2/b21168e4b5fdbfab08a59f9467baa9e4.mp3
+
+

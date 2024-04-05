@@ -1,0 +1,50 @@
+-		div	{mshtml.HTMLDivElementClass}	mshtml.IHTMLElement {mshtml.HTMLDivElementClass}
++		[mshtml.HTMLDivElementClass]	{mshtml.HTMLDivElementClass}	mshtml.HTMLDivElementClass
++		all	{System.__ComObject}	dynamic {System.__ComObject}
++		children	{System.__ComObject}	dynamic {System.__ComObject}
+		className	"songName"	string
++		document	{mshtml.HTMLDocumentClass}	dynamic {mshtml.HTMLDocumentClass}
++		filters	{System.__ComObject}	mshtml.IHTMLFiltersCollection {System.__ComObject}
+		id	null	string
+		innerHTML	"<P class=p_tit>歌曲试听：<B><SPAN id=songInfo><INPUT id=url_679637 name=+SongName+ value=http://m0.songtaste.com/201204231235/bac2ef6dc0c07661bb22c38059661648/0/04/047975dc07ece3645860aa736b5bd779.mp3 type=hidden><INPUT id=midurl_679637 value=4ff1803d387e63205322d3c576af2f08d540f57465c3bb5c72c9cc8211b7cae878eac5de4eca588a2f1ced3fe51ffc51 type=hidden><A class=underline href=\"http://www.songtaste.com/song/679637/\" target=_blank>一首经典的歌清晨咖啡的味道 忍不住跟着哼唱 gotta have you </A></SPAN></B></P>"	string
+		innerText	"歌曲试听：一首经典的歌清晨咖啡的味道 忍不住跟着哼唱 gotta have you "	string
+		isTextEdit	false	bool
+		lang	null	string
+		language	null	string
+		offsetHeight	50	int
+		offsetLeft	0	int
++		offsetParent	{mshtml.HTMLDivElementClass}	mshtml.IHTMLElement {mshtml.HTMLDivElementClass}
+		offsetTop	0	int
+		offsetWidth	350	int
+		onafterupdate	{}	dynamic {System.DBNull}
+		onbeforeupdate	{}	dynamic {System.DBNull}
+		onclick	{}	dynamic {System.DBNull}
+		ondataavailable	{}	dynamic {System.DBNull}
+		ondatasetchanged	{}	dynamic {System.DBNull}
+		ondatasetcomplete	{}	dynamic {System.DBNull}
+		ondblclick	{}	dynamic {System.DBNull}
+		ondragstart	{}	dynamic {System.DBNull}
+		onerrorupdate	{}	dynamic {System.DBNull}
+		onfilterchange	{}	dynamic {System.DBNull}
+		onhelp	{}	dynamic {System.DBNull}
+		onkeydown	{}	dynamic {System.DBNull}
+		onkeypress	{}	dynamic {System.DBNull}
+		onkeyup	{}	dynamic {System.DBNull}
+		onmousedown	{}	dynamic {System.DBNull}
+		onmousemove	{}	dynamic {System.DBNull}
+		onmouseout	{}	dynamic {System.DBNull}
+		onmouseover	{}	dynamic {System.DBNull}
+		onmouseup	{}	dynamic {System.DBNull}
+		onrowenter	{}	dynamic {System.DBNull}
+		onrowexit	{}	dynamic {System.DBNull}
+		onselectstart	{}	dynamic {System.DBNull}
+		outerHTML	"\r\n<DIV class=songName><P class=p_tit>歌曲试听：<B><SPAN id=songInfo><INPUT id=url_679637 name=+SongName+ value=http://m0.songtaste.com/201204231235/bac2ef6dc0c07661bb22c38059661648/0/04/047975dc07ece3645860aa736b5bd779.mp3 type=hidden><INPUT id=midurl_679637 value=4ff1803d387e63205322d3c576af2f08d540f57465c3bb5c72c9cc8211b7cae878eac5de4eca588a2f1ced3fe51ffc51 type=hidden><A class=underline href=\"http://www.songtaste.com/song/679637/\" target=_blank>一首经典的歌清晨咖啡的味道 忍不住跟着哼唱 gotta have you </A></SPAN></B></P></DIV>"	string
+		outerText	"歌曲试听：一首经典的歌清晨咖啡的味道 忍不住跟着哼唱 gotta have you "	string
++		parentElement	{mshtml.HTMLDivElementClass}	mshtml.IHTMLElement {mshtml.HTMLDivElementClass}
++		parentTextEdit	{mshtml.HTMLBodyClass}	mshtml.IHTMLElement {mshtml.HTMLBodyClass}
+		recordNumber	{}	dynamic {System.DBNull}
+		sourceIndex	277	int
++		style	{System.__ComObject}	mshtml.IHTMLStyle {System.__ComObject}
+		tagName	"DIV"	string
+		title	null	string
+		div.className	"songName"	string
